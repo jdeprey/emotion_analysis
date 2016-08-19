@@ -11,10 +11,6 @@
     "default_title": "Feels"
   },
 
-  "background": {
-    "scripts": ["background.js"]
-  },
-
   "permissions": [
     "activeTab",
     "tabs",
