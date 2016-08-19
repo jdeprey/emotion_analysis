@@ -1,0 +1,64 @@
+html {
+  background: #2c3e50;
+}
+
+body {
+	font: 300 16px Helvetica, Arial, sans-serif;
+	width: 95%;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+label {
+  color: #648888;
+}
+
+input,
+select,
+textarea {
+  border: 1px solid ;
+  border-radius: 5px;
+  display: block;
+  margin: 5px 0 27px 0;
+  padding: 5px 8px;
+  width: 95%;
+}
+
+div {
+	font: 300 16px Helvetica, Arial, sans-serif white;
+	width: 50%;
+}
+
+a {
+  font: 300 16px Helvetica, Arial, sans-serif white;
+  width: 50%;
+}
+
+a:link {
+    color: #648888;
+}
+
+a:visited {
+    color: white;
+}
+
+a:hover {
+    color: blue;
+}
+
+a:active {
+    color: blue;
+}
+
+.chart-legend li span{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+}
+
+#doughnutChart {
+    width: 300px;
+    height: 300px;
+}
