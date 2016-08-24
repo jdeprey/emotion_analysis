@@ -3,7 +3,7 @@
 
   "name": "Feels",
   "description": "This extension performs Emotion Analysis on text content of current page",
-  "version": "1.0",
+  "version": "2.0",
 
   "browser_action": {
     "default_icon": "icon.png",
@@ -15,5 +15,12 @@
     "activeTab",
     "tabs",
     "https://ajax.googleapis.com/"
-  ]
+  ],
+
+  "background": {
+    "scripts": [
+    "popup.js"]
+  },
+
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
