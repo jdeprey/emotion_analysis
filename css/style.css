@@ -31,8 +31,8 @@ div {
 }
 
 a {
-  font: 300 16px Helvetica, Arial, sans-serif;
   width: 50%;
+  text-decoration: none;
 }
 
 a:link {
@@ -43,13 +43,10 @@ a:visited {
     color: white;
 }
 
-a:hover {
-    color: blue;
+a:hover, a:active {
+    color: #1789D4;
 }
 
-a:active {
-    color: blue;
-}
 
 .chart-legend li span{
     display: inline-block;

@@ -1,12 +1,12 @@
 {
   "manifest_version": 2,
 
-  "name": "Feels",
-  "description": "This extension performs Emotion Analysis on text content of current page",
+  "name": "Feels Like",
+  "description": "Performs Emotion Analysis on text content of current page",
   "version": "2.0",
 
   "browser_action": {
-    "default_icon": "icon.png",
+    "default_icon": "img/icon.png",
     "default_popup": "popup.html",
     "default_title": "Feels"
   },
@@ -19,7 +19,7 @@
 
   "background": {
     "scripts": [
-    "popup.js"]
+    "js/popup.js"]
   },
 
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"

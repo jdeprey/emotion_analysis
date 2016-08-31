@@ -1,20 +1,20 @@
 <!doctype html>
 <!--
-Popup HTML for Feels - Emotion Analysis Extension
+Popup HTML for Feels Like - Emotion Analysis Extension
  -->
 <html>
   <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Feels Popup</title>
     <!--
       - JavaScript and HTML must be in separate files: see Chrome's Content Security
       - Policy documentation[1] for details and explanation.
       - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
      -->
-    <script src="popup.js"></script>
+    <script src="js/popup.js"></script>
   </head>
-  <h2>Emotion Analysis</h2>
-    <h5>Source: <span id="trimmedURL"></span></h4>
+  <body>
+  <h2>Feels Like</h2>
     <div class="chart-demo">
     <canvas id="doughnutChart"></canvas>
     </div>
@@ -28,7 +28,8 @@ Popup HTML for Feels - Emotion Analysis Extension
         Joy:
         <span id="joy"></span><br>
         Sadness:
-        <span id="sadness"></span><br>
+        <span id="sadness"></span>
+        <h5>Source: <span id="site"></span></h5>
 </body>
-<footer><a role="button" id="alchemy" href="https://www.alchemyapi.com" target="_blank" text-color="white" alt="" >Text Analysis by AlchemyAPI</a></footer>
+<footer><a role="button" id="alchemy" href="https://www.alchemyapi.com" target="_blank">Text Analysis by AlchemyAPI</a></footer>
 </html>
