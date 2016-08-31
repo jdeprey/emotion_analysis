@@ -1,27 +1,25 @@
-
-
+// Get active tab
 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    // Convert decimal to whole number for better readability
+    function floatToWhole(float){return (100*float).toFixed(2)};
+
     var url = tabs[0].url;
     console.assert(typeof url == 'string', 'tab.url should be a string');
-    console.log("url found");
     console.log(url);
 
-    var mydoughnutChart = null;
     var req = new XMLHttpRequest();
     var sourceURL = encodeURIComponent(url);
-
+    // Remove query from source URL for display purposes
+    var trimmedURL = url.substring(0, url.indexOf('?'));
+    // AlchemyAPI Settings
     var endpoint = "https://gateway-a.watsonplatform.net/calls/url/URLGetEmotion?";
     var apikey = "d23e937c6c022fd762126150f87e6bea56407ab7";
     var outputMode = "json";
     var sourceText = "cleaned_or_raw";
-    var showSourceText = "1";
+    var mydoughnutChart = null;
 
     req.open("GET", endpoint + "url=" + sourceURL + "&apikey=" + apikey
-            + "&outputMode=" + outputMode + "&sourceText=" + sourceText
-            + "&showSourceText=" + showSourceText, true);
-
-    // Remove query from source URL for display purposes
-    var trimmedURL = url.substring(0, url.indexOf('?'));
+              + "&outputMode=" + outputMode + "&sourceText=" + sourceText, true);
 
     req.addEventListener("load", function(){
         if (!(req.status >= 200 && req.status < 400)) {
@@ -40,11 +38,11 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
                 var sadnessFloat = parseFloat(response.docEmotions.sadness);
 
                 document.getElementById("trimmedURL").textContent = trimmedURL;
-                document.getElementById("anger").textContent = response.docEmotions.anger;
-                document.getElementById("disgust").textContent = response.docEmotions.disgust;
-                document.getElementById("fear").textContent = response.docEmotions.fear;
-                document.getElementById("joy").textContent = response.docEmotions.joy;
-                document.getElementById("sadness").textContent = response.docEmotions.sadness;
+                document.getElementById("anger").textContent = floatToWhole(response.docEmotions.anger);
+                document.getElementById("disgust").textContent = floatToWhole(response.docEmotions.disgust);
+                document.getElementById("fear").textContent = floatToWhole(response.docEmotions.fear);
+                document.getElementById("joy").textContent = floatToWhole(response.docEmotions.joy);
+                document.getElementById("sadness").textContent = floatToWhole(response.docEmotions.sadness);
             // ======================================================
             // Doughnut Chart
             // ======================================================
@@ -83,7 +81,7 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 
                 //Legend - rounded
                 tooltipTemplate : function(v) {return +(100 * v.value).toFixed(2);}
-            }
+            };
 
             // Doughnut Chart Data
             var doughnutData = [
@@ -112,7 +110,7 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
                     color : "#1789D4",
                     label : "Sadness"
                 }
-            ]
+            ];
 
             //Get the context of the Doughnut Chart canvas element we want to select
             var ctx = document.getElementById("doughnutChart").getContext("2d");
@@ -120,7 +118,7 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 
 
             // Prevent Chart Resize by Destroying Old One
-            if(mydoughnutChart != null){
+            if(mydoughnutChart !== null){
                 mydoughnutChart.destroy();
             }
             // Create the Doughnut Chart
