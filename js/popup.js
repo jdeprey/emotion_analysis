@@ -14,7 +14,8 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     // AlchemyAPI Settings
     var endpoint = "https://gateway-a.watsonplatform.net/calls/url/URLGetEmotion?";
     // Daily transactions are limited for free API
-    var apikey = "d23e937c6c022fd762126150f87e6bea56407ab7";
+    // Get API key here: http://www.alchemyapi.com/api/register.html
+    var apikey = "";
     var outputMode = "json";
     var sourceText = "cleaned_or_raw";
     var feelsChart = null;
