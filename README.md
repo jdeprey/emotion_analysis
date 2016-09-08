@@ -1,2 +1,2 @@
 # Emotion-Analysis-Chrome-Extension
-Chrome Extension using AlchemyAPI's Emotion Analysis
+Analyzes emotion of current page's text content using AlchemyAPI Emotion Analysis
